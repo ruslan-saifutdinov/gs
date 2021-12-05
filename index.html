@@ -1,53 +1,191 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Old+Standard+TT&display=swap&subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-	
-    <title>Портфолио Junior верстальщика</title>
-  </head>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spending</title>
+	<style>
+	html {
+  height: 100%;
 
-  <body>
-    <header class="page-header">
-		<div class="container">
-		Контакты в шапке
-		</div>
-    </header>
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+	 width: calc(100% - 4em);
 
-    <section class="hero-image">
-      <div class="container">
-	  <h1 class="heading">Неопознанный Енот</h1>
-      <p>Junior верстальщик</p>
-	  </div>
-    </section>
+}
 
-    <section class="intro">
-      <div class="container">
-	  <h2 class="subheading">Давайте познакомимся</h2>
-      <h3>Пара слов о себе</h3>
-      <p>Текст с парой слов о себе.</p>
-      <h3>Чем могу быть полезен</h3>
-      <p>Текст о том, чем могу быть полезен.</p>
-	  </div>
-    </section>
+.login-box {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 100%;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
 
-    <section class="portfolio">
-      <div class="container">
-	  <h2 class="subheading">Мои работы</h2>
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
 
-      <h3>Сайт инструктора Кекса</h3>
-      <p>Небольшой лендинг о школе для начинающих.</p>
+.login-box .user-box {
+  position: relative;
+}
 
-      <h3>Блог начинающего верстальщика</h3>
-      <p>Статический блог про обучение HTML и CSS.</p>
-	  </div>
-    </section>
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
 
-    <footer class="page-footer">
-      <div class="container">
-	  Контакты в подвале
-	  </div>
-    </footer>
-  </body>
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.submitt {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  font-weight: bolder;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 2px
+}
+
+  a: hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+	</style>
+</head>
+
+
+
+<body>
+<div class="login-box">
+  <h2>Spending</h2>
+  <form method="post" autocomplete="off" name="google-sheet">
+    <div class="user-box">
+      <input type="number" name="sum"   required="" />
+      <label>Сумма</label>
+    </div>
+    <div class="user-box">
+      <input list="category" type="text" name="category"   required="" />
+<datalist id="category">
+  <option>Продукты</option>
+  <option>Обеды</option>
+  <option>Развлечение</option>
+  <option>Нужное</option>
+<option>Проезд</option>
+<option>Аренда/Кредит</option>
+<option>Связь/Подписки</option>
+<option>Подушка</option>
+<option>Курение</option>
+<option>Мамам</option>
+</datalist>
+      <label>Категория</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="Comment" >
+      <label>Комментарий</label>
+    </div>
+    <a>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="submit" class="submitt" name="submit" value="Отправить"/>
+    </a>
+  </form>
+</div>
+
+  <script type="text/javascript">
+
+
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwcX1FZbSUYLvroFukLUKQ6Bsyczbo9kavV8ZZceFpQ690_NJ2U7ld0EVOA9YFSIRufZQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("You have successfully submitted."))
+                .catch(error => console.error('Error!', error.message))
+            })
+  </script>
+</body>
 </html>
