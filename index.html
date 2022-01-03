@@ -124,11 +124,11 @@ body {
   <h2>Spending</h2>
   <form method="post" autocomplete="off" name="google-sheet">
     <div class="user-box">
-      <input type="number" name="sum"   required="" />
+      <input type="number" name="Сумма"   required="" />
       <label>Сумма</label>
     </div>
     <div class="user-box">
-      <input list="category" type="text" name="category"   required="" />
+      <input list="category" type="text" name="Категория"   required="" />
 <datalist id="category">
   <option>Продукты</option>
   <option>Обеды</option>
@@ -144,7 +144,7 @@ body {
       <label>Категория</label>
     </div>
     <div class="user-box">
-      <input type="text" name="Comment" >
+      <input type="text" name="Комментарий" >
       <label>Комментарий</label>
     </div>
     <a>
@@ -160,13 +160,13 @@ body {
   <script type="text/javascript">
 
 
-	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwcX1FZbSUYLvroFukLUKQ6Bsyczbo9kavV8ZZceFpQ690_NJ2U7ld0EVOA9YFSIRufZQ/exec'
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbywovhUExvAipSxA87J--Mm9kGEj8pOFRHGAQZCUYhHNE88KpykLqyD9IeBQ4I04nDZ/exec'
             const form = document.forms['google-sheet']
           
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("You have successfully submitted."))
+                .then(response => alert("Запись добавлена, молодец!"))
                 .catch(error => console.error('Error!', error.message))
             })
   </script>
