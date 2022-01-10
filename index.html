@@ -112,7 +112,35 @@ body {
   }
 }
 
+.linksinfooter {
+position: absolute;
+  top: 90%;
+  left: 55%;
+font-size: 12px;
+  }
 
+.linksinfooter2 {
+position: absolute;
+  top: 90%;
+  left: 30%;
+font-size: 12px;
+  }
+
+.linksinfooter2 a {
+color: white;
+}
+
+.linksinfooter2 a:visited {
+color: white;
+}
+
+.linksinfooter a {
+color: white;
+}
+
+.linksinfooter a:visited {
+color: white;
+}
 
 	</style>
 </head>
@@ -124,11 +152,11 @@ body {
   <h2>Spending</h2>
   <form method="post" autocomplete="off" name="google-sheet">
     <div class="user-box">
-      <input type="number" name="Сумма"   required="" />
+      <input id="Сумма" type="number" name="Сумма"   required="" />
       <label>Сумма</label>
     </div>
     <div class="user-box">
-      <input list="category" type="text" name="Категория"   required="" />
+      <input id="Категория" list="category" type="text" name="Категория"   required="" />
 <datalist id="category">
   <option>Продукты</option>
   <option>Обеды</option>
@@ -144,7 +172,7 @@ body {
       <label>Категория</label>
     </div>
     <div class="user-box">
-      <input type="text" name="Комментарий" >
+      <input id="Комментарий" type="text" name="Комментарий" >
       <label>Комментарий</label>
     </div>
     <a>
@@ -157,6 +185,14 @@ body {
   </form>
 </div>
 
+<div class="linksinfooter">
+<a href="diagrams.html">Диаграммы</a>
+</div>
+<div class="linksinfooter2">
+<a href="https://script.google.com/macros/s/AKfycbwcyIWt5Vlxr4FCP2oyxcWKdaB8ZivgIxLYRKrhqra0e--PdMVLPGf8UbS5DUrNw0vFYg/exec">Транзакции</a>
+</div>
+
+
   <script type="text/javascript">
 
 
@@ -166,9 +202,26 @@ body {
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Запись добавлена, молодец!"))
+                
                 .catch(error => console.error('Error!', error.message))
+
+	var result = confirm("Отправляю данные, очистить поля?");
+
+if ( result ) {
+    // the user clicked ok
+document.getElementById('Сумма').value = '';
+document.getElementById('Категория').value = '';
+document.getElementById('Комментарий').value = '';
+} else {
+    // the user clicked cancel or closed the confirm dialog.
+document.getElementById('Сумма').value = '';
+document.getElementById('Категория').value = 'Я люблю';
+document.getElementById('Комментарий').value = 'Машу :3';
+}
             })
   </script>
 </body>
 </html>
+
+
+
