@@ -3,6 +3,10 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Spending</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="manifest" href="img/site.webmanifest">
 	<style>
 	html {
   height: 100%;
@@ -165,9 +169,11 @@ color: white;
 <option>Проезд</option>
 <option>Аренда/Кредит</option>
 <option>Связь/Подписки</option>
-<option>Подушка</option>
 <option>Курение</option>
 <option>Мамам</option>
+<option>Подушка</option>
+<option>Зарплата</option>
+<option>Прочие доходы</option>
 </datalist>
       <label>Категория</label>
     </div>
@@ -212,16 +218,10 @@ if ( result ) {
 document.getElementById('Сумма').value = '';
 document.getElementById('Категория').value = '';
 document.getElementById('Комментарий').value = '';
-} else {
-    // the user clicked cancel or closed the confirm dialog.
-document.getElementById('Сумма').value = '';
-document.getElementById('Категория').value = 'Я люблю';
-document.getElementById('Комментарий').value = 'Машу :3';
-}
+} 
             })
   </script>
 </body>
 </html>
-
 
 
